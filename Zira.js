@@ -1,5 +1,3 @@
-'use strict';
-
 const Eris = require('eris');
 const fs = require('fs');
 const Trello = require('trello');
@@ -11,7 +9,7 @@ const IPC = require('./src/IPC.js');
 
 class Zira {
   constructor({ firstShardID, lastShardID, maxShards, cluster }) {
-    this.bot = new Eris(process.env.TOKEN, {
+    this.bot = new Eris("NjYxOTI3MjQ4NDgzNDUwOTIw.Xgyh1A.uGY4h9vDyD3QDwxPjGGgZcfWyHA", {
       disableEvents: {
         TYPING_START: true,
         PRESENCE_UPDATE: true,

@@ -1,42 +1,59 @@
 {
-  "name": "zira",
-  "version": "2.0.2",
-  "description": "Zira is a reaction role Discord bot that allows users to give themselves roles by reacting on messages with an emoji/emote.",
+  "//1": "describes your app and its dependencies",
+  "//2": "https://docs.npmjs.com/files/package.json",
+  "//3": "updating this file will download and update your packages",
+  "name": "hello-express",
+  "version": "0.0.1",
+  "description": "A simple Node app built on Express, instantly up and running.",
   "main": "Zira.js",
   "scripts": {
-    "start": "pm2 start pm2.json && pm2 log",
-    "restart": "pm2 delete Zira && pm2 start pm2.json && pm2 log",
-    "stop": "pm2 delete Zira"
+    "start": "node Zira.js"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "colors": "^1.3.2",
+    "common-tags": "^1.8.0",
+    "discord.js": "^11.4.2",
+    "discord.js-commando": "^0.10.0",
+    "express": "^4.16.4",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-binaries": "^4.0.0",
+    "figlet": "^1.2.1",
+    "fs": "^0.0.2",
+    "g-image-search": "^1.0.2",
+    "jimp": "^0.5.4",
+    "js-base64": "^2.4.9",
+    "kratos": "^2.3.3",
+    "moment": "^2.22.2",
+    "moment-duration-format": "^2.2.2",
+    "node-opus": "^0.3.0",
+    "path": "^0.12.7",
+    "quick-db": "^1.0.5",
+    "quick.db": "^6.3.2",
+    "request": "^2.88.0",
+    "server.js": "^1.0.0",
+    "simple-youtube-api": "^5.1.0",
+    "snekfetch": "^4.0.4",
+    "sqlite": "^3.0.0",
+    "superagent": "^4.0.0-beta.5",
+    "ytdl-core": "^0.26.3",
+    "randomstring": "^1.1.5",
+    "weather-js": "^2.0.0",
+    "gifencoder": "^1.1.0",
+    "google": "^2.1.0",
+    "eris": "^0.11.2",
+    "trello": "^0.9.1"
+  },
+  "engines": {
+    "node": "10.x"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ZiraDiscord/Zira.git"
+    "url": "https://glitch.com/edit/#!/hello-express"
   },
+  "license": "MIT",
   "keywords": [
-    "discord",
-    "zira",
-    "reaction",
-    "role"
-  ],
-  "author": "HazedSPaCEx (Hazed SPaCEx#2574)",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/ZiraDiscord/Zira/issues"
-  },
-  "homepage": "https://github.com/ZiraDiscord/Zira#readme",
-  "dependencies": {
-    "bufferutil": "^3.0.5",
-    "eris": "^0.8.6",
-    "erlpack": "github:abalabahaha/erlpack",
-    "eventemitter3": "^3.1.0",
-    "mime": "^2.4.0",
-    "moment": "^2.23.0",
-    "monk": "^6.0.6",
-    "numeral": "^2.0.6",
-    "request": "^2.88.0",
-    "short-unique-id": "^1.1.1",
-    "text-table": "^0.2.0",
-    "trello": "^0.9.0",
-    "winston": "^3.1.0"
-  }
+    "node",
+    "glitch",
+    "express"
+  ]
 }
