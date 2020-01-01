@@ -42,7 +42,9 @@
     "gifencoder": "^1.1.0",
     "google": "^2.1.0",
     "eris": "^0.11.2",
-    "trello": "^0.9.1"
+    "trello": "^0.9.1",
+    "winston": "^3.2.1",
+    "monk": "^7.1.0"
   },
   "engines": {
     "node": "10.x"
