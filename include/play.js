@@ -51,6 +51,7 @@ module.exports = {
       await playingMessage.react("⏸");
       await playingMessage.react("▶");
       await playingMessage.react("⏹");
+      await playingMessage.react("🔁");
     } catch (error) {
       console.error(error);
     }
@@ -91,6 +92,9 @@ module.exports = {
           collector.stop();
           playingMessage.reactions.removeAll();
           break;
+        case "🔁":
+          queue.loop = !queue.loop;
+          queue.textChannel.send(`${user} 🔁 Loop is now ${queue.loop ? "**on**" : "**off**"}!`).catch(console.error);
 
         default:
           break;
