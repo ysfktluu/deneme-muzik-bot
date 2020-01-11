@@ -7,7 +7,7 @@ module.exports = {
     let commands = message.client.commands.array();
 
     let helpEmbed = new MessageEmbed()
-      .setTitle("Help - BetterSeries")
+      .setTitle("Help - BetterMusic")
       .setDescription("List of all commands!")
     .addField('!help', `Display all commands and descriptions`)
     .addField('!loop', `Toggle music loop`)
@@ -20,7 +20,7 @@ module.exports = {
      .addField('!skip', `Skip the currently playing song`)
      .addField('!stop', `Stops the music`)
      .addField('!volume', `Change volume of currentply playing voiceConnection`)
-    .addField('Links!', `[İnvite Link](https://discordapp.com/oauth2/authorize?client_id=661927248483450920&scope=bot&permissions=8)\n\n`)
+    .addField('Links!', `\n-[İnvite Link](https://discordapp.com/oauth2/authorize?client_id=661927248483450920&scope=bot&permissions=8)\n-[Supporter Server](https://discord.gg/CvzYypW)`)
       .setColor("#F8AA2A");
 
     helpEmbed.setTimestamp();
