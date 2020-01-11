@@ -25,7 +25,7 @@ Copy or Rename `config.json.example` to `config.json` and fill out the values:
 
 ```json
 {
-	"TOKEN": "",
+	"TOKEN": "NjYxOTI3MjQ4NDgzNDUwOTIw.Xhm2DA.xdpI3Ej8mEljIB8VyxsCGS3zv8w",
 	"YOUTUBE_API_KEY": "",
 	"MAX_PLAYLIST_SIZE": 10,
 	"PREFIX": "/"
