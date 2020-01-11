@@ -27,6 +27,13 @@ client.on("error", console.error);
 /**
  * Import all commands
  */
+client.on('message', msg => {
+  
+
+  if (msg.content.toLowerCase() === 'sa') {
+    msg.reply('Aleyküm Selam Hoşgeldin!')
+  }//lan naptın
+});
 const commandFiles = readdirSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"));
 for (const file of commandFiles) {
   const command = require(join(__dirname, "commands", `${file}`));
