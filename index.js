@@ -18,6 +18,8 @@ client.queue = new Map();
 client.on("ready", () => {
 	console.log(`${client.user.username} ready!`);
 	client.user.setActivity(`Music | ${PREFIX}`);
+   const link = "https://discordapp.com/oauth2/authorize?client_id="+client.user.id+"&scope=bot&permissions=8";
+   console.log(`İnvite : [${link}]!!`)
 });
 client.on("warn", info => console.log(info));
 client.on("error", console.error);

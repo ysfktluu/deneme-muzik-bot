@@ -5,11 +5,12 @@ module.exports = {
   description: "Display all commands and descriptions",
   execute(message) {
     let commands = message.client.commands.array();
-    
+
     let helpEmbed = new MessageEmbed()
-    .setTitle("Help")
-    .setDescription("List of all commands")
-    .setColor("#F8AA2A");
+      .setTitle("Help - BetterSeries")
+      .setDescription("List of all commands")
+    
+      .setColor("#F8AA2A");
 
     commands.forEach(cmd => {
       helpEmbed.addField(
