@@ -55,7 +55,7 @@ module.exports = {
       console.error(error);
     }
 
-    const filter = (reaction, user) => user.id !== message.client.user.id;
+    const filter = (reaction, user) => user.id !== message.client.user.id && user.id == message.author.id;
     const collector = playingMessage.createReactionCollector(filter, { time: 1800000 });
 
     collector.on("collect", (reaction, user) => {
