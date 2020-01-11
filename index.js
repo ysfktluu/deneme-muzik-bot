@@ -1,6 +1,7 @@
 /**
  * Module Imports
  */
+
 const discord = require("discord.js");
 const client = new discord.Client({ disableEveryone: true, disabledEvents: ["TYPING_START"] });
 const { readdirSync } = require("fs");
@@ -29,11 +30,15 @@ client.on("error", console.error);
  */
 client.on('message', msg => {
   
-
-  if (msg.content.toLowerCase() === 'sa') {
-    msg.reply('Aleyküm Selam Hoşgeldin!')
-  }//lan naptın
+  if (msg.content.toLowerCase() === '!invite') {
+    const eris = new Discord.RichEmbed()
+    .setAuthor(client.user.username, client.user.avatarURL)
+    .setDescription('[Commands](https://discord.gg/JDUPa6s)\n[Official Discord](https://discord.gg/JDUPa6s)\n[Add Me](https://discord.gg/JDUPa6s)\n[Donate](https://discord.gg/JDUPa6s)')
+    msg.channel.send(eris);
+  }
 });
+ 
+
 const commandFiles = readdirSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"));
 for (const file of commandFiles) {
   const command = require(join(__dirname, "commands", `${file}`));
