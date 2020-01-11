@@ -28,13 +28,7 @@ client.on("error", console.error);
 /**
  * Import all commands
  */
-client.on('message', msg => {
-  
-  if (msg.content.toLowerCase() === '!invite') {
-    let mebed = new Discord.RichEmbed()
-         msg.channel.send(mebed)
-  }//lan
-});
+
 
 const commandFiles = readdirSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"));
 for (const file of commandFiles) {
