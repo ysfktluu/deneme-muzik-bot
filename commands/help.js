@@ -9,7 +9,7 @@ module.exports = {
     let helpEmbed = new MessageEmbed()
       .setTitle("Help - BetterSeries")
       .setDescription("List of all commands!")
-    
+     .addField('!invite', `Bot Links!`)
       .setColor("#F8AA2A");
 
     commands.forEach(cmd => {
