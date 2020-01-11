@@ -31,13 +31,10 @@ client.on("error", console.error);
 client.on('message', msg => {
   
   if (msg.content.toLowerCase() === '!invite') {
-    const eris = new Discord.RichEmbed()
-    .setAuthor(client.user.username, client.user.avatarURL)
-    .setDescription('[Commands](https://discord.gg/JDUPa6s)\n[Official Discord](https://discord.gg/JDUPa6s)\n[Add Me](https://discord.gg/JDUPa6s)\n[Donate](https://discord.gg/JDUPa6s)')
-    msg.channel.send(eris);
-  }
+    let mebed = new Discord.RichEmbed()
+         msg.channel.send(mebed)
+  }//lan
 });
- 
 
 const commandFiles = readdirSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"));
 for (const file of commandFiles) {
