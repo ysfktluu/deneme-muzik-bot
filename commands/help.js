@@ -8,7 +8,7 @@ module.exports = {
 
     let helpEmbed = new MessageEmbed()
       .setTitle("Help - BetterSeries")
-      .setDescription("List of all commands")
+      .setDescription("List of all commands!")
     
       .setColor("#F8AA2A");
 
