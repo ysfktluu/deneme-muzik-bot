@@ -18,7 +18,7 @@ client.queue = new Map();
  */
 client.on("ready", () => {
 	console.log(`${client.user.username} ready!`);
-	client.user.setActivity('BetterMusic | '+client.guilds.size+' Server!');
+	client.user.setActivity(`BetterMusic | ${client.users.size} User!`);
    const link = "https://discordapp.com/oauth2/authorize?client_id="+client.user.id+"&scope=bot&permissions=8";
    console.log(`İnvite : [${link}]!!`)
 });
