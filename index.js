@@ -20,7 +20,7 @@ client.on("ready", () => {
 	console.log(`${client.user.username} ready!`);
 	client.user.setActivity(`Bu Bot Kişiye Özeldir.`);
    const link = "https://discordapp.com/oauth2/authorize?client_id="+client.user.id+"&scope=bot&permissions=8";
-   console.log(`İnvite : [${link}]!!`)
+   console.log(`Davet : [${link}]!!`)
 });
 client.on("warn", info => console.log(info));
 client.on("error", console.error);
@@ -53,7 +53,7 @@ client.on("message", async message => {
       client.commands.get(command).execute(message, args);
     } catch (error) {
       console.error(error);
-      message.reply("There was an error executing that command.").catch(console.error);
+      message.reply("Bu komut yürütülürken bir hata oluştu.").catch(console.error);
     }
   }
 });

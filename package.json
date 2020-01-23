@@ -7,6 +7,8 @@
   "private": true,
   "dependencies": {
     "discord.js": "github:discordjs/discord.js",
+    "moment": "^2.24.0",
+    "moment-duration-format": "^2.3.2",
     "opusscript": "0.0.7",
     "simple-youtube-api": "^5.1.1",
     "ytdl-core": "^1.0.0",

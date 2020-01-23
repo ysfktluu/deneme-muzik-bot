@@ -1,5 +1,7 @@
 dependencies:
   discord.js: github.com/discordjs/discord.js/a53d86579b8150de5388eef5d07520b26d3f7d04
+  moment: 2.24.0
+  moment-duration-format: 2.3.2
   opusscript: 0.0.7
   simple-youtube-api: 5.2.1
   ytdl-core: 1.0.6
@@ -119,6 +121,14 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-I5oBwZmcaOuJrjQn7lpS29HM+aAZDbzKbX5ouxVyhFYdg6fA6YKOTwOCgzZQwlHuMek3FlCxz6eNrd4pOXbwOA==
+  /moment-duration-format/2.3.2:
+    dev: false
+    resolution:
+      integrity: sha512-cBMXjSW+fjOb4tyaVHuaVE/A5TqkukDWiOfxxAjY+PEqmmBQlLwn+8OzwPiG3brouXKY5Un4pBjAeB6UToXHaQ==
+  /moment/2.24.0:
+    dev: false
+    resolution:
+      integrity: sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
   /nan/2.14.0:
     dev: false
     optional: true
@@ -239,6 +249,7 @@ packages:
       utf-8-validate: ^5.0.2
       zlib-sync: ^0.1.6
     resolution:
+      registry: 'https://registry.npmjs.org/'
       tarball: 'https://codeload.github.com/discordjs/discord.js/tar.gz/a53d86579b8150de5388eef5d07520b26d3f7d04'
     version: 12.0.0-dev
 registry: 'https://registry.npmjs.org/'
@@ -247,6 +258,8 @@ shrinkwrapVersion: 3
 specifiers:
   discord.js: 'github:discordjs/discord.js'
   erlpack: 'github:discordapp/erlpack'
+  moment: ^2.24.0
+  moment-duration-format: ^2.3.2
   node-opus: ^0.3.1
   opusscript: 0.0.7
   simple-youtube-api: ^5.1.1
