@@ -1,14 +1,12 @@
 module.exports = {
   name: "loop",
-  description: "Toggle music loop",
+  description: "Müzik tekrarını açıp kapatmanızı sağlar.",
   async execute(message) {
-    const serverQueue = message.client.queue.get(message.guild.id);
-    if (!serverQueue) return message.reply("Şuan çalan bir müzik bulunmamakta.").catch(console.error);
+    const sira = message.client.queue.get(message.guild.id);
+    if (!sira) return message.reply("Şuan çalan bir müzik bulunmamakta.").catch(console.error);
 
-    // toggle from false to true and reverse
-    serverQueue.loop = !serverQueue.loop;
-    return serverQueue.textChannel
-      .send(`Loop is now ${serverQueue.loop ? "**on**" : "**off**"}`)
-      .catch(console.error);
+    sira.loop = !sira.loop;
+    return sira.textChannel.send(`Döngü başarıyla ${sira.loop ? "**açıldı**" : "**kapatıldı**"}.`)
+    .catch(console.error);
   }
 };

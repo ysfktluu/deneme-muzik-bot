@@ -6,19 +6,19 @@ const YouTubeAPI = require("simple-youtube-api");
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
 
 module.exports = {
-  name: "play",
-  description: "Plays audio from YouTube",
+  name: "çal",
+  description: "YouTube'dan ses çalar",
   async execute(message, args) {
     const { channel } = message.member.voice;
 
-    if (!args.length) return message.reply("Usage: !play <YouTube URL | Video Name>").catch(console.error);
+    if (!args.length) return message.reply("Kullanım: !çal <YouTube URL'si | Video Adı>").catch(console.error);
     if (!channel) return message.reply("Önce bir ses kanalına katılmanız gerekiyor!").catch(console.error);
 
     const permissions = channel.permissionsFor(message.client.user);
     if (!permissions.has("CONNECT"))
-      return message.reply("Cannot connect to voice channel, missing permissions");
+      return message.reply("Ses kanalına bağlanamıyor, Bağlan izini eksik");
     if (!permissions.has("SPEAK"))
-      return message.reply("I cannot speak in this voice channel, make sure I have the proper permissions!");
+      return message.reply("Bu ses kanalında konuşamıyorum, uygun izinlere sahip olduğumdan emin olun!");
 
     const search = args.join(" ");
     const videoPattern = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
@@ -56,7 +56,7 @@ module.exports = {
       } catch (error) {
         if (error.message.includes("copyright")) {
           return message
-            .reply("⛔ The video could not be played due to copyright protection ⛔")
+            .reply("⛔ Bu Video, telif hakkı koruması nedeniyle oynatılamadı ⛔")
             .catch(console.error);
         } else {
           console.error(error);
@@ -79,7 +79,7 @@ module.exports = {
     if (serverQueue) {
       serverQueue.songs.push(song);
       return serverQueue.textChannel
-        .send(`✅ **${song.title}** has been added to the queue by ${message.author}`)
+          .send(`${message.author} tarafından **${song.title}** kuyruğa eklendi`)
         .catch(console.error);
     } else {
       queueConstruct.songs.push(song);
@@ -92,10 +92,10 @@ module.exports = {
         queueConstruct.connection = await channel.join();
         play(queueConstruct.songs[0], message);
       } catch (error) {
-        console.error(`Could not join voice channel: ${error}`);
+        console.error(`Ses Kanala katılamadım: ${error}`);
         message.client.queue.delete(message.guild.id);
         await channel.leave();
-        return message.channel.send(`Could not join the channel: ${error}`).catch(console.error);
+        return message.channel.send(`Kanala katılamadım: ${error}`).catch(console.error);
       }
     }
   }

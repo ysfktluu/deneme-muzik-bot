@@ -7,7 +7,7 @@ module.exports = {
     if (!song) {
       queue.channel.leave();
       message.client.queue.delete(message.guild.id);
-      return queue.textChannel.send("🚫 Music queue ended.").catch(console.error);
+      return queue.textChannel.send("🚫 Müzik sırası sona erdi.").catch(console.error);
     }
 
     try {
@@ -20,7 +20,7 @@ module.exports = {
 
       if (error.message.includes("copyright")) {
         return message.channel
-          .send("⛔ A video could not be played due to copyright protection ⛔")
+          .send("⛔ Telif hakkı koruması nedeniyle video oynatılamadı ⛔")
           .catch(console.error);
       } else {
         console.error(error);
@@ -46,7 +46,7 @@ module.exports = {
     dispatcher.setVolumeLogarithmic(queue.volume / 100);
 
     try {
-      var playingMessage = await queue.textChannel.send(`🎶 Started playing: **${song.title}** ${song.url}`);
+      var playingMessage = await queue.textChannel.send(`🎶 Oynatılmaya Başlandı: **${song.title}** ${song.url}`);
       await playingMessage.react("⏭");
       await playingMessage.react("⏸");
       await playingMessage.react("▶");
@@ -66,7 +66,7 @@ module.exports = {
       switch (reaction.emoji.name) {
         case "⏭":
           queue.connection.dispatcher.end();
-          queue.textChannel.send(`${user} ⏩ skipped the song`).catch(console.error);
+          queue.textChannel.send(`${user} ⏩ şarkıyı atladı`).catch(console.error);
           collector.stop();
           playingMessage.reactions.removeAll();
           break;
@@ -75,26 +75,26 @@ module.exports = {
           if (!queue.playing) break;
           queue.playing = false;
           queue.connection.dispatcher.pause();
-          queue.textChannel.send(`${user} ⏸ paused the music.`).catch(console.error);
+          queue.textChannel.send(`${user} ⏸ müziği duraklattı.`).catch(console.error);
           break;
 
         case "▶":
           if (queue.playing) break;
           queue.playing = true;
           queue.connection.dispatcher.resume();
-          queue.textChannel.send(`${user} ▶ resumed the music!`).catch(console.error);
+          queue.textChannel.send(`${user} ▶ müziği devam ettirdi!`).catch(console.error);
           break;
 
         case "⏹":
           queue.songs = [];
           queue.connection.dispatcher.end();
-          queue.textChannel.send(`${user} ⏹ stopped the music!`).catch(console.error);
+          queue.textChannel.send(`${user} ⏹ müziği durdurdu!`).catch(console.error);
           collector.stop();
           playingMessage.reactions.removeAll();
           break;
         case "🔁":
           queue.loop = !queue.loop;
-          queue.textChannel.send(`${user} 🔁 Loop is now ${queue.loop ? "**on**" : "**off**"}!`).catch(console.error);
+          queue.textChannel.send(`${user} 🔁 Döngü Başarıyla ${queue.loop ? "**Aktif**" : "**Devredışı**"} Hale Getirildi!`).catch(console.error);
 
         default:
           break;

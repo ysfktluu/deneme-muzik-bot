@@ -5,19 +5,19 @@ const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
 
 module.exports = {
   name: "playlist",
-  description: "Play a playlist from youtube",
+  description: "Youtube'dan bir oynatma listesi oynatın",
   async execute(message, args) {
     const { channel } = message.member.voice;
 
     if (!args.length)
-      return message.reply("Usage: /playlist <YouTube Playlist URL | Playlist Name>").catch(console.error);
+      return message.reply("Kullanım: /playlist <YouTube Oynatma Listesi URL'si | Oynatma Listesi Adı>").catch(console.error);
     if (!channel) return message.reply("Önce bir ses kanalına katılmanız gerekiyor!").catch(console.error);
 
     const permissions = channel.permissionsFor(message.client.user);
     if (!permissions.has("CONNECT"))
-      return message.reply("Cannot connect to voice channel, missing permissions");
+      return message.reply("Ses kanalına bağlanamıyor, Bağlan izini eksik");
     if (!permissions.has("SPEAK"))
-      return message.reply("I cannot speak in this voice channel, make sure I have the proper permissions!");
+      return message.reply("Bu ses kanalında konuşamıyorum, uygun izinlere sahip olduğumdan emin olun!");
 
     const search = args.join(" ");
     const pattern = /^.*(youtu.be\/|list=)([^#\&\?]*).*/gi;
@@ -66,7 +66,7 @@ module.exports = {
       if (serverQueue) {
         serverQueue.songs.push(song);
         message.channel
-          .send(`✅ **${song.title}** has been added to the queue by ${message.author}`)
+          .send(`${message.author} tarafından **${song.title}** kuyruğa eklendi`)
           .catch(console.error);
       } else {
         queueConstruct.songs.push(song);
@@ -91,10 +91,10 @@ ${queueConstruct.songs.map((song, index) => index + 1 + ". " + song.title).join(
         queueConstruct.connection = connection;
         play(queueConstruct.songs[0], message);
       } catch (error) {
-        console.error(`Could not join voice channel: ${error}`);
+        console.error(`Ses kanalına katılamadım: ${error}`);
         message.client.queue.delete(message.guild.id);
         await channel.leave();
-        return message.channel.send(`Could not join the channel: ${error}`).catch(console.error);
+        return message.channel.send(`Kanala katılamadım: ${error}`).catch(console.error);
       }
     }
   }
