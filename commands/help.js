@@ -1,6 +1,4 @@
 const { MessageEmbed } = require("discord.js");
-const Discord = require('discord.js');
-const client = new Discord.Client();
 module.exports = {
   name: "help",
   description: "Yardım komutlarını gösterir.",
@@ -8,7 +6,7 @@ module.exports = {
     let commands = message.client.commands.array();
 
     let helpEmbed = new MessageEmbed()
-      .setTitle(`Yardım - ${client.user.username}`)
+      .setTitle(`Yardım - Rythm Bot`)
       .setDescription("Bütün komutlar!")
     .addField('!help', `Bütün komutları ve açıklamaları gösterir.`)
     .addField('!loop', `Yeniden oynatmayı açıp kapatmanızı sağlar.`)

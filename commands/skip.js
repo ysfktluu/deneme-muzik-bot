@@ -1,6 +1,6 @@
 module.exports = {
   name: "geç",
-  description: "Skip the currently playing song",
+  description: "Çalmakta olan şarkıyı atlar",
   async execute(message) {
     const serverQueue = message.client.queue.get(message.guild.id);
 

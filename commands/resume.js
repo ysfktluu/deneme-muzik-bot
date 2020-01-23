@@ -1,6 +1,6 @@
 module.exports = {
-  name: "resume",
-  description: "Resume currently playing music",
+  name: "devam et",
+  description: "Müziği çalmaya devam ettirir.",
   execute(message) {
     const serverQueue = message.client.queue.get(message.guild.id);
 
@@ -10,8 +10,8 @@ module.exports = {
     if (serverQueue && !serverQueue.playing) {
       serverQueue.playing = true;
       serverQueue.connection.dispatcher.resume();
-      return serverQueue.textChannel.send(`${message.author} ▶ resumed the music!`).catch(console.error);
+      return serverQueue.textChannel.send(`${message.author} ▶ Başarıyla müziği devam ettirdi!`).catch(console.error);
     }
-    return message.reply("There is nothing playing.").catch(console.error);
+    return message.reply("Şuan çalan bir müzik bulunmamakta.").catch(console.error);
   }
 };

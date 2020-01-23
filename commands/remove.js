@@ -1,12 +1,12 @@
 module.exports = {
-  name: "remove",
-  description: "Remove song from the queue",
+  name: "kaldır",
+  description: "Şarkıyı kuyruktan kaldırır.",
   async execute(message, args) {
-    if (!args.length) return message.reply("Usage: /remove <Queue Number>");
+    if (!args.length) return message.reply("Kullanım: !kaldır <Sıra Numarası>");
     const serverQueue = message.client.queue.get(message.guild.id);
-    if (!serverQueue) return message.channel.send("There is no queue.").catch(console.error);
+    if (!serverQueue) return message.channel.send("Sıra yok.").catch(console.error);
 
     const song = serverQueue.songs.splice(args[0] - 1, 1);
-    serverQueue.textChannel.send(`${message.author} ❌ removed **${song[0].title}** from the queue.`);
+    serverQueue.textChannel.send(`${message.author} Tarafından **${song[0].title}** Kuyruktan Kaldırıldı.`);
   }
 };
