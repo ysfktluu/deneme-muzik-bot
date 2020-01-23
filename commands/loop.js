@@ -3,7 +3,7 @@ module.exports = {
   description: "Toggle music loop",
   async execute(message) {
     const serverQueue = message.client.queue.get(message.guild.id);
-    if (!serverQueue) return message.reply("There is nothing playing.").catch(console.error);
+    if (!serverQueue) return message.reply("Şuan çalan bir müzik bulunmamakta.").catch(console.error);
 
     // toggle from false to true and reverse
     serverQueue.loop = !serverQueue.loop;

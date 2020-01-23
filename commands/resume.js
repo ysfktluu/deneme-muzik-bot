@@ -5,7 +5,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!message.member.voice.channel)
-      return message.reply("You need to join a voice channel first!").catch(console.error);
+      return message.reply("Önce bir ses kanalına katılmanız gerekiyor!").catch(console.error);
 
     if (serverQueue && !serverQueue.playing) {
       serverQueue.playing = true;

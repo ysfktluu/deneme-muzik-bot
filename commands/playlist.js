@@ -11,7 +11,7 @@ module.exports = {
 
     if (!args.length)
       return message.reply("Usage: /playlist <YouTube Playlist URL | Playlist Name>").catch(console.error);
-    if (!channel) return message.reply("You need to join a voice channel first!").catch(console.error);
+    if (!channel) return message.reply("Önce bir ses kanalına katılmanız gerekiyor!").catch(console.error);
 
     const permissions = channel.permissionsFor(message.client.user);
     if (!permissions.has("CONNECT"))
