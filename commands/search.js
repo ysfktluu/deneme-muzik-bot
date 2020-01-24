@@ -75,21 +75,23 @@ module.exports = {
          .setFooter('**Bir rakam seçiniz veya çıkış yazarak çıkınız.**'));
           message.delete(5000)
         let videoIndex;
-					try {
-						var response = await message.channel.awaitMessages(msg2 => msg2//msg2.content > 0 && msg2.content < 11, {
+        var response = await message.channel.awaitMessages(msg2 => msg2.author == message.author, {//msg2.content > 0 && msg2.content < 11, {
 							maxMatches: 1,
 							time: 10000,
 							errors: ['time']
-						});
+				});
+					try {
+            console.log(response.first().content)
             videoIndex = parseInt(response.first().content);
           } catch (err) {
-					  console.error(err);
+            console.log(response.first().content)
+					  //console.error(err);
 						return message.channel.send(new MessageEmbed()
             .setColor('0x36393E')
             .setDescription('❎ | **10 Saniye İçinde Şarkı Seçmediğiniz İçin seçim İptal Edilmiştir!**.'));
           }
 				//var video = await youtube.getVideoByID(results[videoIndex - 1].id);
-        songInfo = await ytdl.getInfo(results[videoIndex - 1].id);
+        songInfo = await ytdl.getInfo(results[videoIndex - 1].url);
         song = {
           title: songInfo.title,
           url: songInfo.video_url,
