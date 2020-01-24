@@ -1,7 +1,3 @@
-/**
- * Module Imports
- */
-
 const discord = require("discord.js");
 const client = new discord.Client({ disableEveryone: true, disabledEvents: ["TYPING_START"] });
 const { readdirSync } = require("fs");
@@ -13,21 +9,13 @@ client.commands = new discord.Collection();
 client.prefix = PREFIX;
 client.queue = new Map();
 
-/**
- * Client Events
- */
 client.on("ready", () => {
 	console.log(`${client.user.username} ready!`);
-	client.user.setActivity(`Bu Bot Kişiye Özeldir.`);
    const link = "https://discordapp.com/oauth2/authorize?client_id="+client.user.id+"&scope=bot&permissions=8";
    console.log(`Davet : [${link}]!!`)
 });
 client.on("warn", info => console.log(info));
 client.on("error", console.error);
-
-/**
- * Import all commands
- */
 
 
 const commandFiles = readdirSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"));
