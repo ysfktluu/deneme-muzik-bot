@@ -4,6 +4,7 @@ const { YOUTUBE_API_KEY } = require("../config.json");
 const ytdl = require("ytdl-core");
 const YouTubeAPI = require("simple-youtube-api");
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "ara",
@@ -68,7 +69,27 @@ module.exports = {
         var results = await youtube.searchVideos(search, 10);
         let index = 0;
         
-        songInfo = await ytdl.getInfo(results[0].url);
+        message.channel.send(new MessageEmbed()
+         .setAuthor(message.author.username, message.author.displayAvatarURL)
+         .setDescription(`${results.map(video2 => `\`${++index}.\` ${video2.title}`).join('\n \n')}`)
+         .setFooter('**Bir rakam seçiniz veya çıkış yazarak çıkınız.**'));
+          message.delete(5000)
+        let videoIndex;
+					try {
+						var response = await message.channel.awaitMessages(msg2 => msg2//msg2.content > 0 && msg2.content < 11, {
+							maxMatches: 1,
+							time: 10000,
+							errors: ['time']
+						});
+            videoIndex = parseInt(response.first().content);
+          } catch (err) {
+					  console.error(err);
+						return message.channel.send(new MessageEmbed()
+            .setColor('0x36393E')
+            .setDescription('❎ | **10 Saniye İçinde Şarkı Seçmediğiniz İçin seçim İptal Edilmiştir!**.'));
+          }
+				//var video = await youtube.getVideoByID(results[videoIndex - 1].id);
+        songInfo = await ytdl.getInfo(results[videoIndex - 1].id);
         song = {
           title: songInfo.title,
           url: songInfo.video_url,
@@ -76,6 +97,9 @@ module.exports = {
         };
       } catch (error) {
         console.error(error);
+        return message.channel.send(new MessageEmbed()
+        .setColor('0x36393E')
+        .setDescription('❎ | YouTubede Böyle Bir Şarkı Yok !**'));
       }
     }
 
