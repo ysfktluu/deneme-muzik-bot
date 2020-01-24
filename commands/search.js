@@ -75,7 +75,7 @@ module.exports = {
          .setFooter('**Bir rakam seçiniz veya çıkış yazarak çıkınız.**'));
           message.delete(5000)
         let videoIndex;
-        var response = await message.channel.awaitMessages(msg2 => msg2.author == message.author, {//msg2.content > 0 && msg2.content < 11, {
+        var response = await message.channel.awaitMessages(msg2 => msg2.author.id === message.author.id, {//msg2.content > 0 && msg2.content < 11, {
 							maxMatches: 1,
 							time: 10000,
 							errors: ['time']
