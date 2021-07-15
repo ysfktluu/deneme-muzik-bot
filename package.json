@@ -1,24 +1,28 @@
 {
-  "name": "evobot",
-  "version": "0.3.2",
-  "description": "Discord music bot built with discord.js",
-  "main": "index.js",
-  "author": "Erit Islami <eritislami@gmail.com>",
-  "private": true,
-  "dependencies": {
-    "discord.js": "github:discordjs/discord.js",
-    "moment": "^2.24.0",
-    "moment-duration-format": "^2.3.2",
-    "opusscript": "0.0.7",
-    "simple-youtube-api": "^5.1.1",
-    "ytdl-core": "^1.0.0",
-    "ytdl-core-discord": "amishshah/ytdl-core-discord"
-  },
-  "optionalDependencies": {
-    "erlpack": "discordapp/erlpack",
-    "node-opus": "^0.3.1"
-  },
+  "name": "hello-node",
+  "version": "0.0.1",
+  "description": "A simple Node app built on fastify, instantly up and running.",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js"
-  }
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "fastify": "^3.14.1",
+    "fastify-formbody": "^5.0.0",
+    "fastify-static": "^4.0.0",
+    "handlebars": "^4.7.7",
+    "point-of-view": "^4.14.0"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/glitch-hello-node"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
 }
